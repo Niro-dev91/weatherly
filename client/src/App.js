@@ -1,14 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import ResultPage from './pages/ResultPage';
+import Forecast from './pages/ForecastPage';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/result" element={<ResultPage />} />
+      <Route path="/forecast" element={<Forecast />} />
+    </Routes>
   );
 }
 
-export default App;
+export default function RootApp() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
