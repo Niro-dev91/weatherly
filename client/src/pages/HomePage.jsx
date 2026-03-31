@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FiMapPin, FiMic, FiMicOff } from 'react-icons/fi';
 import ParticlesBackground from '../component/ParticlesBackground';
 import { useCallback } from 'react';
+import WeatherChatBot from '../component/WeatherChatBot';
 
 export default function HomePage() {
   const [city, setCity] = useState('');
@@ -189,6 +190,8 @@ export default function HomePage() {
           </button>
 
           {errorMsg && <p className="text-red-600 font-semibold mt-2 animate-pulse">{errorMsg}</p>}
+
+          <WeatherChatBot city={city} />
         </div>
       </div>
     </>
